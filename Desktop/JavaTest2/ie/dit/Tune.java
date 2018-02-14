@@ -14,20 +14,21 @@ public class Tune
 	private String altTitle;
 	private String notation;
 	
+	public void loadTuneList()
+    {
+        TuneBook();
+    }
+
 	public String toString()
     {
         StringBuffer sb = new StringBuffer();
-        for(String tune:TuneList)
+        
+		for(String tune:TuneList)
         {
             sb.append(x + ", " + title + ", " + altTitle);
         }
 
         return sb.toString();
-    }
-	
-	public void loadTuneList()
-    {
-        TuneBook();
     }
 	
 	public void Accessor(int num, String name, String name2, String notes)
@@ -37,15 +38,15 @@ public class Tune
 			int x = num;
 			String title = name;
 			String altTitle = name2;
-			String notation = notes;	
-		
+			String notation = notes;
 		
 	}
 	
 	public String toString()
     {
         StringBuffer sb = new StringBuffer();
-        for(String tune:TuneList)
+        
+		for(String tune:TuneList)
         {
             sb.append(x + ", " + title + ", " + altTitle + ", " + notation);
         }
@@ -57,14 +58,14 @@ public class Tune
 	{
 		System.out.println(notation);
 	}
-}
+
 
 public interface Player
 {
-	public void Tune.Play();
+	public void Play();
 }
 
-public class TuneBook(ArrayList tunes)
+public class TuneBook(String name)
 {
 	public static void main(String[] args)
     {
@@ -86,11 +87,22 @@ public class TuneBook(ArrayList tunes)
         return sb.toString();
     }
 	
+	public Tune findTune(String title)
+	{
+		for(String tune:TuneList)
+		{
+			if(tune.title == title)
+			{
+				return tune.title;
+			}
+		}
+	}
+	
 	BufferedReader inputStream = null;
 
     try 
 	{
-         inputStream = new BufferedReader(new FileReader(tunes));
+         inputStream = new BufferedReader(new FileReader(name));
             
          String l;
          while ((l = inputStream.readLine()) != null) 
@@ -117,4 +129,5 @@ public class TuneBook(ArrayList tunes)
                 }
             }
     }
+}
 }
