@@ -52,15 +52,24 @@ public class Tune
 
         return sb.toString();
     }
-}
+}ff
 
 public class TuneBook(ArrayList tunes)
 {
+	public static void main(String[] args)
+    {
+        TuneBook tb = new TuneBook("abcFile.txt");
+        System.out.println(tb);
+
+        //Tune t = tb.findTune("Scotsman over the Border");
+        //t.play();
+    }
+	
 	BufferedReader inputStream = null;
 
     try 
 	{
-         inputStream = new BufferedReader(new FileReader("abcFile.txt"));
+         inputStream = new BufferedReader(new FileReader(tunes));
             
          String l;
          while ((l = inputStream.readLine()) != null) 
