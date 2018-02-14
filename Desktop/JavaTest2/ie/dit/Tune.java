@@ -52,7 +52,17 @@ public class Tune
 
         return sb.toString();
     }
-}ff
+	
+	public void Play()
+	{
+		System.out.println(notation);
+	}
+}
+
+public interface Player
+{
+	public void Tune.Play();
+}
 
 public class TuneBook(ArrayList tunes)
 {
@@ -62,7 +72,18 @@ public class TuneBook(ArrayList tunes)
         System.out.println(tb);
 
         //Tune t = tb.findTune("Scotsman over the Border");
-        //t.play();
+       // t.play();
+    }
+	
+	public String toString()
+    {
+        StringBuffer sb = new StringBuffer();
+        for(String tune:TuneList)
+        {
+            sb.append(x + ",\n " + title + ",\n " + altTitle + ",\n " + notation);
+        }
+
+        return sb.toString();
     }
 	
 	BufferedReader inputStream = null;
